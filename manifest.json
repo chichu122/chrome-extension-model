@@ -1,13 +1,20 @@
 {
-  "manifest_version": 2,
-  "name": "My Extension Pro",
-  "version": "1.0",
-  "permissions": ["activeTab", "tabs", "http://*/*", "https://*/*"],
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_title": "Toggle Sidebar"
-  },
-  "background": {
-    "scripts": ["background.js"]
+    "manifest_version": 2,
+    "name": "My Extension Pro",
+    "version": "1.0",
+    "permissions": ["activeTab"],
+    "browser_action": {
+      "default_icon": "icon.png",
+      "default_title": "Toggle Sidebar"
+    },
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
   }
-}
