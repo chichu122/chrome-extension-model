@@ -1,5 +1,6 @@
 let sidebar = document.createElement('div');
 sidebar.attachShadow({mode: 'open'});
+// 添加侧边栏样式
 sidebar.shadowRoot.innerHTML = `
   <style>
     :host {
@@ -20,7 +21,7 @@ sidebar.shadowRoot.innerHTML = `
 `;
 document.body.appendChild(sidebar);
 
-// 创建一个style元素来控制页面宽度
+// 依照小美创建一个style元素来控制页面宽度
 let style = document.createElement('style');
 style.id = 'myStyle';
 document.head.appendChild(style);
@@ -35,7 +36,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       sidebar.classList.add('active');
       style.textContent = `
       html {
-        width: calc(100% - 420px); /* width of sidebar + margin */
+        width: calc(100% - 420px);
         position: relative !important;
         min-height:100vh !important;
       }
